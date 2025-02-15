@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmlbf7sygfet7"]
+
+[ext_resource type="Texture2D" uid="uid://g51x0uv1x3s" path="res://sprites/mario.png" id="1_0eeow"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_75xsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6yca"]
+size = Vector2(12, 16)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_75xsq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0eeow")
+offset = Vector2(0, -16)
+hframes = 37
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_k6yca")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(7, 7)
