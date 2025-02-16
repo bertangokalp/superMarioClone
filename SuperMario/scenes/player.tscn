@@ -1,66 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmlbf7sygfet7"]
+[gd_scene load_steps=4 format=3 uid="uid://dmlbf7sygfet7"]
 
 [ext_resource type="Texture2D" uid="uid://g51x0uv1x3s" path="res://sprites/mario.png" id="1_0eeow"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_75xsq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6yca"]
 size = Vector2(12, 16)
-
-[sub_resource type="Animation" id="Animation_6lpdx"]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_1nc6r"]
-resource_name = "run"
-length = 0.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_xpl1q"]
-resource_name = "jump"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7uqe"]
-_data = {
-"idle": SubResource("Animation_6lpdx"),
-"jump": SubResource("Animation_xpl1q"),
-"run": SubResource("Animation_1nc6r")
-}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_75xsq")
@@ -75,9 +19,4 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_k6yca")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_h7uqe")
-}
+zoom = Vector2(7, 7)
