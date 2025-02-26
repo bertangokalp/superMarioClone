@@ -1,24 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://4mu07tb6nd4b"]
+[gd_scene load_steps=6 format=3 uid="uid://4mu07tb6nd4b"]
 
-[ext_resource type="Texture2D" uid="uid://bvnpanl388haw" path="res://icon.svg" id="1_dt6jp"]
+[ext_resource type="Texture2D" uid="uid://doho7f15wwtlv" path="res://sprites/marioTileset.png" id="2_gxttd"]
 [ext_resource type="PackedScene" uid="uid://dmlbf7sygfet7" path="res://scenes/player.tscn" id="2_jblbx"]
+[ext_resource type="PackedScene" uid="uid://b4kutkpmx7u0" path="res://scenes/brick_block.tscn" id="3_e2d24"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb05r"]
-size = Vector2(128, 126)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vm1ae"]
+texture = ExtResource("2_gxttd")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_dq8xj"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_vm1ae")
 
 [node name="mainScene" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(681, 432)
-scale = Vector2(17.34, 1)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("1_dt6jp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_jb05r")
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_dq8xj")
+format = 2
+layer_0/tile_data = PackedInt32Array(1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1310741, 0, 0, 1310742, 0, 0, 1310743, 0, 0, 1376279, 0, 0, 1441815, 0, 0, 1507351, 0, 0, 1507350, 0, 0, 1441814, 0, 0, 1441813, 0, 0, 1441812, 0, 0, 1441811, 0, 0, 1441810, 0, 0, 1441809, 0, 0, 1376274, 0, 0, 1376275, 0, 0, 1376276, 0, 0, 1376277, 0, 0, 1376278, 0, 0, 1310737, 0, 0, 1310736, 0, 0, 1376272, 0, 0, 1441808, 0, 0, 1507349, 0, 0, 1507348, 0, 0, 1507347, 0, 0, 1507346, 0, 0, 1507345, 0, 0, 1376273, 0, 0, 1507344, 0, 0, 1507343, 0, 0, 1507342, 0, 0, 1441806, 0, 0, 1376270, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1376271, 0, 0, 1441807, 0, 0, 1310744, 0, 0, 1376280, 0, 0, 1441816, 0, 0, 1507352, 0, 0, 1507353, 0, 0, 1507354, 0, 0, 1441818, 0, 0, 1376282, 0, 0, 1310746, 0, 0, 1310745, 0, 0, 1376281, 0, 0, 1441817, 0, 0, 1179672, 65536, 0, 1245208, 65536, 0, 1245209, 65536, 0, 1179673, 65536, 0, 1114127, 65536, 0, 1179663, 65536, 0, 1245199, 65536, 0, 1245200, 65536, 0, 1179664, 65536, 0, 1114128, 65536, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_jblbx")]
 position = Vector2(323, 318)
+
+[node name="brickBlock" parent="." instance=ExtResource("3_e2d24")]
+position = Vector2(328, 272)
